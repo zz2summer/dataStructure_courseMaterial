@@ -1,0 +1,221 @@
+<html>
+<head>
+<title>书目结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style type="text/css">
+   <!--
+    .text1{font-size:9pt;color:#000000;text-decoration:none; font-family: "宋体"}
+    .text1:hover{font-size:9pt;color:#660066;text-decoration: underline}
+    .text2{font-size:9pt;color:#000080;text-decoration:none; font-family: "宋体"}
+    .text2:hover{font-size:9pt;color:#660066;text-decoration: underline}
+   -->
+</style>
+<script language="JavaScript1.2">
+scores = new Array(20);
+var numTotal=0;
+NS4 = (document.layers) ? 1 : 0;
+IE4 = (document.all) ? 1 : 0;
+ver4 = (NS4 || IE4) ? 1 : 0;
+
+if (ver4) {
+    with (document) {
+        write("<STYLE TYPE='text/css'>");
+        if (NS4) {
+            write(".parent {position:absolute; visibility:visible}");
+            write(".child {position:absolute; visibility:visible}");
+            write(".regular {position:absolute; visibility:visible}")
+        }
+        else {
+            write(".child {display:none}")
+        }
+        write("</STYLE>");
+    }
+}
+
+function getIndex(el) {
+    ind = null;
+    for (i=0; i<document.layers.length; i++) {
+        whichEl = document.layers[i];
+        if (whichEl.id == el) {
+            ind = i;
+            break;
+        }
+    }
+    return ind;
+}
+
+function arrange() {
+    nextY = document.layers[firstInd].pageY +document.layers[firstInd].document.height;
+    for (i=firstInd+1; i<document.layers.length; i++) {
+        whichEl = document.layers[i];
+        if (whichEl.visibility != "hide") {
+            whichEl.pageY = nextY;
+            nextY += whichEl.document.height;
+        }
+    }
+}
+
+function initIt(){
+    if (!ver4) return;
+    if (NS4) {
+        for (i=0; i<document.layers.length; i++) {
+            whichEl = document.layers[i];
+            if (whichEl.id.indexOf("Child") != -1) whichEl.visibility = "hide";
+       }
+        arrange();
+    }
+    else {
+        divColl = document.all.tags("DIV");
+        for (i=0; i<divColl.length; i++) {
+            whichEl = divColl(i);
+            if (whichEl.className == "child") whichEl.style.display = "none";
+        }
+    }
+}
+
+function expandIt(el) {
+	if (!ver4) return;
+    if (IE4) {
+        whichEl1 = eval(el + "Child");
+		for(i=1;i<=numTotal;i++){
+			whichEl = eval(scores[i] + "Child");
+			if(whichEl!=whichEl1) {
+				whichEl.style.display = "none";
+			}
+		}
+        whichEl1 = eval(el + "Child");
+        if (whichEl1.style.display == "none") {
+            whichEl1.style.display = "block";
+        }
+        else {
+            whichEl1.style.display = "none";
+        }
+    }
+    else {
+        whichEl = eval("document." + el + "Child");
+		for(i=1;i<=numTotal;i++){
+			whichEl = eval("document." + scores[i] + "Child");
+			if(whichEl!=whichEl1) {
+				whichEl.visibility = "hide";
+			}
+		}
+        if (whichEl.visibility == "hide") {
+            whichEl.visibility = "show";
+        }
+        else {
+            whichEl.visibility = "hide";
+        }
+        arrange();
+    }
+}
+onload = initIt;
+</script>
+</head>
+
+<body bgcolor="#eeeeee" topmargin=0 leftmargin="0">
+<br>
+<table border="0" cellspacing="0" cellpadding="2" width="350">
+  <tr> 
+    <td> 
+      </td>     
+  </tr>     
+  <tr> 
+    <td> 
+      <div id="KB1Parent" class="parent"> <a href="#" class="text2" onClick="expandIt('KB1'); return false"> 
+        <img src="images/close1.gif" border=0 width="26" height="16" align="absmiddle">大学本科生系列教材</a></div>
+      <div id="KB1Child" class="child" style="width: 318; height: 306"> 
+        <p style="margin-top: 2; margin-bottom: 2"> &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle"> 
+        <a href="catalog/1_01.htm" class="text1" target="main"> 新世纪计算机基础教育丛书</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/1_02.htm" class="text1" target="main"> 清华大学计算机基础教育课程系列教材</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/1_03.htm" class="text1" target="main"> 高等院校计算机基础教育教材精选</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/1_04.htm" class="text1" target="main"> 普通高校文科计算机教材</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/1_05.htm" class="text1" target="main"> 高等院校信息管理与信息系统专业系列教材</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/1_06.htm" class="text1" target="main"> 高等院校信息管理与信息系统专业参考教材</a><br>          
+        &nbsp; <img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/1_07.htm" class="text1" target="main"> 北京大学信息技术系列</a><br>          
+              
+                
+         
+        &nbsp; <img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/1_14.htm" class="text1" target="main"> 编程之路系列教材</a><br>          
+                 
+         
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/1_08.htm" class="text1" target="main"> 清华大学计算机系列教材</a><br>         
+              
+      
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/1_15.htm" class="text1" target="main"> 21世纪大学本科计算机专业系列教材</a><br>         
+       
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/1_09.htm" class="text1" target="main"> 普通高等院校计算机专业（本科）实用教程系列</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/1_10.htm" class="text1" target="main"> 教育部人才培养模式改革和开放教育试点教材</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/1_11.htm" class="text1" target="main"> 计算机科学组合学丛书</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/1_12.htm" class="text1" target="main"> 世界著名计算机教材精选</a><br>          
+        &nbsp; <img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">          
+        <a href="catalog/1_13.htm" class="text1" target="main"> 大学计算机教材丛书（影印版）</a>  
+        <p style="margin-top: 0; margin-bottom: 0">&nbsp; <img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">         
+        <a href="catalog/1_16.htm" class="text1" target="main"> 大学计算机教育国外著名教材 教参系列（影印版）</a> 
+        　 &nbsp; <img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/1_12.htm" class="text1" target="main"> 审计署计算机审计中级培训系列教材</a></div>     
+       
+  
+      <div id="KB2Parent" class="parent" style="width: 346; height: 2"> 
+        <p style="margin-top: 0; margin-bottom: 0"><a href="#" class="text2" onClick="expandIt('KB2'); return false">         
+        <img src="images/close.gif" border=0 width="26" height="16" align="absmiddle">专科与高职系列教材</a></div>        
+      <div id="KB2Child" class="child"> &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">         
+        <a href="catalog/2_01.htm" class="text1" target="main"> 21世纪计算机专业大专系列教材</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/2_02.htm" class="text1" target="main"> 计算机专业大专系列教材</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/2_03.htm" class="text1" target="main"> 教育部高职高专规划教材</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/2_04.htm" class="text1" target="main"> 高职高专计算机系列教材</a>           
+        <br>          
+      </div>          
+      <div id="KB3Parent" class="parent"><a href="#" class="text2" onClick="expandIt('KB3'); return false">           
+        <img src="images/close.gif" border=0 width="26" height="16" align="absmiddle">中职（职高）教材</a></div>          
+      <div id="KB3Child" class="child"> &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/3_01.htm" class="text1" target="main"> 中等职业技术教育计算机教材</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/3_02.htm" class="text1" target="main"> 21世纪中等职业技术教育计算机系列教材</a><br>          
+      </div>          
+      <div id="KB4Parent" class="parent"><a href="#" class="text2" onClick="expandIt('KB4'); return false">           
+        <img src="images/close2.gif" border=0 width="26" height="16" align="absmiddle">其          
+                   
+        <span lang="zh-cn">他</span>教材</a></div>          
+      <div id="KB4Child" class="child"> &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/4_01.htm" class="text1" target="main"> 计算机原理及基础知识教材</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/4_02.htm" class="text1" target="main"> 计算机语言及程序设计教程</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/4_03.htm" class="text1" target="main"> 操作系统</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/4_04.htm" class="text1" target="main"> 数据结构与数据库</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/4_05.htm" class="text1" target="main">信息产业</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">          
+        <a href="catalog/4_06.htm" class="text1" target="main"> 网络与通信</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/4_07.htm" class="text1" target="main"> 多媒体技术与应用</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/4_08.htm" class="text1" target="main"> 人工智能</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/4_09.htm" class="text1" target="main"> 软件技术与软件工程</a><br>          
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">           
+        <a href="catalog/4_10.htm" class="text1" target="main"> 计算机在各个领域中的应用</a><br>          
+      </div>          
+      </td>          
+  </tr>          
+</table><br><br>          
+</body>          
+          
+</html>

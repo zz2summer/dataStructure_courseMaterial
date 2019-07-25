@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+typedef struct tNode{
+	char data;
+	struct tNode * lchild;
+	struct tNode * rchild;
+}TNode;
+TNode * CreateBiTree( TNode *T ){
+	char ch;
+	scanf("%c",&ch);
+	if(ch=='$') T=NULL; 
+	else{
+		if(!(T=(TNode*)malloc(sizeof(TNode)))) 
+		{printf("Memory Error!");  return NULL;}
+		T->data=ch;
+		T->lchild = CreateBiTree(T->lchild);
+		T->rchild = CreateBiTree(T->rchild);
+	}
+	return T;
+}
+
+void preOrder(TNode *T){
+	if(T!= NULL){
+		cout<<T->data<<' ';
+		preOrder(T->lchild);
+		preOrder(T->rchild);
+	}
+}
+void inOrder(TNode *T){
+	if(T!= NULL){
+		inOrder(T->lchild);
+		cout<<T->data<<' ';
+		inOrder(T->rchild);
+	}
+}
+void postOrder(TNode *T){
+	if(T!= NULL){
+		postOrder(T->lchild);
+		postOrder(T->rchild);
+		cout<<T->data<<' ';
+	}
+}
+void main(){
+	TNode *treeRoot = CreateBiTree(treeRoot);
+	cout<<endl<<"The Tree Node in PreOrder is:  ";
+	preOrder(treeRoot);
+	cout<<endl<<"The Tree Node in InOrder is:  ";
+	inOrder(treeRoot);
+	cout<<endl<<"The Tree Node in PostOrder is:  ";
+	postOrder(treeRoot);
+	cout<<endl;
+}

@@ -1,0 +1,157 @@
+<html>
+<head>
+<title>书目结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style type="text/css">
+   <!--
+    .text1{font-size:9pt;color:#000000;text-decoration:none; font-family: "宋体"}
+    .text1:hover{font-size:9pt;color:#660066;text-decoration: underline}
+    .text2{font-size:9pt;color:#000080;text-decoration:none; font-family: "宋体"}
+    .text2:hover{font-size:9pt;color:#660066;text-decoration: underline}
+   -->
+</style>
+<script language="JavaScript1.2">
+scores = new Array(20);
+var numTotal=0;
+NS4 = (document.layers) ? 1 : 0;
+IE4 = (document.all) ? 1 : 0;
+ver4 = (NS4 || IE4) ? 1 : 0;
+
+if (ver4) {
+    with (document) {
+        write("<STYLE TYPE='text/css'>");
+        if (NS4) {
+            write(".parent {position:absolute; visibility:visible}");
+            write(".child {position:absolute; visibility:visible}");
+            write(".regular {position:absolute; visibility:visible}")
+        }
+        else {
+            write(".child {display:none}")
+        }
+        write("</STYLE>");
+    }
+}
+
+function getIndex(el) {
+    ind = null;
+    for (i=0; i<document.layers.length; i++) {
+        whichEl = document.layers[i];
+        if (whichEl.id == el) {
+            ind = i;
+            break;
+        }
+    }
+    return ind;
+}
+
+function arrange() {
+    nextY = document.layers[firstInd].pageY +document.layers[firstInd].document.height;
+    for (i=firstInd+1; i<document.layers.length; i++) {
+        whichEl = document.layers[i];
+        if (whichEl.visibility != "hide") {
+            whichEl.pageY = nextY;
+            nextY += whichEl.document.height;
+        }
+    }
+}
+
+function initIt(){
+    if (!ver4) return;
+    if (NS4) {
+        for (i=0; i<document.layers.length; i++) {
+            whichEl = document.layers[i];
+            if (whichEl.id.indexOf("Child") != -1) whichEl.visibility = "hide";
+       }
+        arrange();
+    }
+    else {
+        divColl = document.all.tags("DIV");
+        for (i=0; i<divColl.length; i++) {
+            whichEl = divColl(i);
+            if (whichEl.className == "child") whichEl.style.display = "none";
+        }
+    }
+}
+
+function expandIt(el) {
+	if (!ver4) return;
+    if (IE4) {
+        whichEl1 = eval(el + "Child");
+		for(i=1;i<=numTotal;i++){
+			whichEl = eval(scores[i] + "Child");
+			if(whichEl!=whichEl1) {
+				whichEl.style.display = "none";
+			}
+		}
+        whichEl1 = eval(el + "Child");
+        if (whichEl1.style.display == "none") {
+            whichEl1.style.display = "block";
+        }
+        else {
+            whichEl1.style.display = "none";
+        }
+    }
+    else {
+        whichEl = eval("document." + el + "Child");
+		for(i=1;i<=numTotal;i++){
+			whichEl = eval("document." + scores[i] + "Child");
+			if(whichEl!=whichEl1) {
+				whichEl.visibility = "hide";
+			}
+		}
+        if (whichEl.visibility == "hide") {
+            whichEl.visibility = "show";
+        }
+        else {
+            whichEl.visibility = "hide";
+        }
+        arrange();
+    }
+}
+onload = initIt;
+</script>
+</head>
+
+<body bgcolor="#eeeeee" topmargin=0 leftmargin="0">
+<br>
+<table border="0" cellspacing="0" cellpadding="2" width="350">
+  <tr> 
+    <td> 
+      <div id="KB1Parent" class="parent"> <a href="#" class="text2" onClick="expandIt('KB1'); return false"> 
+        <img src="images/close1.gif" border=0 width="26" height="16" align="absmiddle">考试及培训教材</a></div>
+      <div id="KB1Child" class="child"> &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle"> 
+        <a href="catalog/1_01.htm" class="text1" target="main"> 全国计算机应用技术证书考试（NIT）指定教材</a><br>
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle"> 
+        <a href="catalog/1_02.htm" class="text1" target="main"> 计算机综合培训教程系列丛书</a><br>
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle"> 
+        <a href="catalog/1_03.htm" class="text1" target="main"> 中国计算机软件专业技术资格和水平考试用书</a><br>
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle"> 
+        <a href="catalog/1_04.htm" class="text1" target="main"> 新东方电脑培训教材</a><br>
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle"> 
+        <a href="catalog/1_05.htm" class="text1" target="main"> 网络工程师系列丛书</a><br>
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle"> 
+        <a href="catalog/1_06.htm" class="text1" target="main"> 全国高等教育自学考试</a><br>
+           &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle"> 
+        <a href="catalog/1_07.htm" class="text1" target="main">计算机等级考试丛书（2002大纲）</a><br>
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle"> 
+        <a href="catalog/1_08.htm" class="text1" target="main">全国计算机等级考试全真训练丛书</a><br>
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle"> 
+        <a href="catalog/1_09.htm" class="text1" target="main"> 信息技术与电子政务</a><br>
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle"> 
+        <a href="catalog/1_10.htm" class="text1" target="main"> 网络程序设计系列丛书</a><br>
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle"> 
+        <a href="catalog/1_11.htm" class="text1" target="main"> 微软（中国）公司office产品组建推荐培训教材</a><br>
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle"> 
+        <a href="catalog/1_12.htm" class="text1" target="main"> MCSE致胜宝典/官方模拟试题</a><br>
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle"> 
+        <a href="catalog/1_13.htm" class="text1" target="main"> 清华电脑学堂系列培训教材</a><br>
+      
+      </div>
+   
+
+      </td>
+  </tr>
+</table><br><br>
+</body>
+
+</html>

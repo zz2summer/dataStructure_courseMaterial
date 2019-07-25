@@ -1,0 +1,28 @@
+.black9 { font-family: "宋体", "Arial"; font-size: 9pt; color: #000000; line-height: 
+15pt} .black9b { font-family: "宋体", "Arial"; font-size: 9pt; font-weight: bold; 
+color: #000000; line-height: 15pt} .brown9 { font-family: "宋体", "Arial"; font-size: 
+9pt; line-height: 15pt; color: #663300} .white9 { font-family: "宋体", "Arial"; 
+font-size: 9pt; line-height: 15pt; color: #FFFFFF} .white9b { font-family: "宋体", 
+"Arial"; font-size: 9pt; line-height: 15pt; font-weight: bold; color: #FFFFFF} 
+a:visited 
+{ color: #666666; text-decoration: none} a:hover {  color: #000000; text-decoration: underline}
+a:link {  color: #000000; text-decoration: none}
+.darkred9b {  font-family: "宋体", "Arial"; font-size: 9pt; line-height: 15pt; font-weight: bold; color: #990000}
+.brown12b {  font-family: "宋体", "Arial"; font-size: 12pt; line-height: 18pt; font-weight: bold; color: #663300}
+.darkred12b {  font-family: "宋体", "Arial"; font-size: 12pt; line-height: 18pt; font-weight: bold; color: #990000}
+.lightbrown12b {  font-family: "宋体", "Arial"; font-size: 12pt; font-weight: bold; color: #996600; line-height: 18pt}
+.lightbrown16b {  font-family: "宋体", "Arial"; font-size: 16pt; line-height: 20pt; font-weight: bold; color: #996600}
+.blue12b {  font-family: "宋体", "Arial"; font-size: 12pt; line-height: 18pt; font-weight: bold; color: #006699}
+.orange12b {  font-family: "宋体", "Arial"; font-size: 12pt; line-height: 18pt; font-weight: bold; color: #FF9900}
+.orange9b {  font-family: "宋体", "Arial"; font-size: 9pt; line-height: 15pt; font-weight: bold; color: #FF9900}
+.lightbrown9b {  font-family: "宋体", "Arial"; font-size: 9pt; line-height: 15pt; font-weight: bold; color: #996600}
+.blue9b {  font-family: "宋体", "Arial"; font-size: 9pt; line-height: 15pt; font-weight: bold; color: #006699}
+.black12b {  font-family: "宋体", "Arial"; font-size: 12pt; line-height: 18pt; font-weight: bold; color: #000000}
+.green9b {  font-family: "宋体", "Arial"; font-size: 9pt; line-height: 15pt; font-weight: bold; color: #336600}
+.green12b {  font-family: "宋体", "Arial"; font-size: 12pt; line-height: 18pt; font-weight: bold; color: #336600}
+.black9-2 {  font-family: "宋体"; font-size: 9pt; color: #000000}
+.white9-2 {  font-family: "宋体"; font-size: 9pt; color: #FFFFFF; line-height: 14pt}
+.white9-3 {  font-family: "宋体"; font-size: 9pt; color: #FFFFFF}
+.gray9 {  font-family: "宋体"; font-size: 9pt; line-height: 15pt; color: #666666}
+.blue9 {  font-family: "宋体"; font-size: 9pt; line-height: 15pt; color: #006699}
+td {  font-family: "宋体"; font-size: 9pt}

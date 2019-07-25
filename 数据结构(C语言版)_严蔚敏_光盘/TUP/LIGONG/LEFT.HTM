@@ -1,0 +1,203 @@
+<html>
+<head>
+<title>书目结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style type="text/css">
+   <!--
+    .text1{font-size:9pt;color:#000000;text-decoration:none; font-family: "宋体"}
+    .text1:hover{font-size:9pt;color:#660066;text-decoration: underline}
+    .text2{font-size:9pt;color:#000080;text-decoration:none; font-family: "宋体"}
+    .text2:hover{font-size:9pt;color:#660066;text-decoration: underline}
+   -->
+</style>
+<script language="JavaScript1.2">
+scores = new Array(20);
+var numTotal=0;
+NS4 = (document.layers) ? 1 : 0;
+IE4 = (document.all) ? 1 : 0;
+ver4 = (NS4 || IE4) ? 1 : 0;
+
+if (ver4) {
+    with (document) {
+        write("<STYLE TYPE='text/css'>");
+        if (NS4) {
+            write(".parent {position:absolute; visibility:visible}");
+            write(".child {position:absolute; visibility:visible}");
+            write(".regular {position:absolute; visibility:visible}")
+        }
+        else {
+            write(".child {display:none}")
+        }
+        write("</STYLE>");
+    }
+}
+
+function getIndex(el) {
+    ind = null;
+    for (i=0; i<document.layers.length; i++) {
+        whichEl = document.layers[i];
+        if (whichEl.id == el) {
+            ind = i;
+            break;
+        }
+    }
+    return ind;
+}
+
+function arrange() {
+    nextY = document.layers[firstInd].pageY +document.layers[firstInd].document.height;
+    for (i=firstInd+1; i<document.layers.length; i++) {
+        whichEl = document.layers[i];
+        if (whichEl.visibility != "hide") {
+            whichEl.pageY = nextY;
+            nextY += whichEl.document.height;
+        }
+    }
+}
+
+function initIt(){
+    if (!ver4) return;
+    if (NS4) {
+        for (i=0; i<document.layers.length; i++) {
+            whichEl = document.layers[i];
+            if (whichEl.id.indexOf("Child") != -1) whichEl.visibility = "hide";
+       }
+        arrange();
+    }
+    else {
+        divColl = document.all.tags("DIV");
+        for (i=0; i<divColl.length; i++) {
+            whichEl = divColl(i);
+            if (whichEl.className == "child") whichEl.style.display = "none";
+        }
+    }
+}
+
+function expandIt(el) {
+	if (!ver4) return;
+    if (IE4) {
+        whichEl1 = eval(el + "Child");
+		for(i=1;i<=numTotal;i++){
+			whichEl = eval(scores[i] + "Child");
+			if(whichEl!=whichEl1) {
+				whichEl.style.display = "none";
+			}
+		}
+        whichEl1 = eval(el + "Child");
+        if (whichEl1.style.display == "none") {
+            whichEl1.style.display = "block";
+        }
+        else {
+            whichEl1.style.display = "none";
+        }
+    }
+    else {
+        whichEl = eval("document." + el + "Child");
+		for(i=1;i<=numTotal;i++){
+			whichEl = eval("document." + scores[i] + "Child");
+			if(whichEl!=whichEl1) {
+				whichEl.visibility = "hide";
+			}
+		}
+        if (whichEl.visibility == "hide") {
+            whichEl.visibility = "show";
+        }
+        else {
+            whichEl.visibility = "hide";
+        }
+        arrange();
+    }
+}
+onload = initIt;
+</script>
+</head>
+
+<body bgcolor="#eeeeee" topmargin=0 leftmargin="0">
+<br>
+<table border="0" cellspacing="0" cellpadding="2" width="350">
+  <tr> 
+    <td> 
+      <div id="KB1Parent" class="parent"> <a href="#" class="text2" onClick="expandIt('KB1'); return false"> 
+        <img src="images/close1.gif" border=0 width="26" height="16" align="absmiddle">自动化、电子技术、电机工程</a></div>
+      <div id="KB1Child" class="child"> &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle"> 
+        <a href="catalog/1_01.htm" class="text1" target="main"> 自动化</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/1_02.htm" class="text1" target="main"> 现代集成制造系统（CIMS）系列</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/1_03.htm" class="text1" target="main"> 国际知名大学原版教材（信息技术学科与电气工程）</a><br> 
+ 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/1_05.htm" class="text1" target="main"> 电子工程系列教材（英文影印版）</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/1_06.htm" class="text1" target="main"> 《信息技术丛书》与《信息、控制与系统》系列教材</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/1_07.htm" class="text1" target="main"> 电子技术、电机工程</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/1_08.htm" class="text1" target="main"> 高等职业教育机电类系列教材</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/1_09.htm" class="text1" target="main"> 清华大学电子与信息技术系列教材</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/1_10.htm" class="text1" target="main"> ATM与B-ISDN技术丛书（英文影印版）</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/1_11.htm" class="text1" target="main"> ATM与B-ISDN技术丛书（翻译版）</a><br> 
+      </div> 
+      <div id="KB2Parent" class="parent"><a href="#" class="text2" onClick="expandIt('KB2'); return false">  
+        <img src="images/close.gif" border=0 width="26" height="16" align="absmiddle">机械、精密仪器、汽车、热能</a></div> 
+      <div id="KB2Child" class="child"> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/2_01.htm" class="text1" target="main"> 机械、精密仪器、汽车</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/2_02.htm" class="text1" target="main"> 热能</a><br> 
+         &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/2_03.htm" class="text1" target="main"> 国外大学优秀教材——工业工程系列</a><br> 
+      </div> 
+      <div id="KB3Parent" class="parent"><a href="#" class="text2" onClick="expandIt('KB3'); return false">  
+        <img src="images/close.gif" border=0 width="26" height="16" align="absmiddle">土木、建筑、水利、环境</a></div> 
+      <div id="KB3Child" class="child"> &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/3_01.htm" class="text1" target="main"> 土木、建筑</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/3_02.htm" class="text1" target="main"> 水利、环境</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/3_03.htm" class="text1" target="main"> 大学环境教育丛书（英文影印版）</a><br> 
+       
+      </div> 
+      <div id="KB4Parent" class="parent"><a href="#" class="text2" onClick="expandIt('KB4'); return false">  
+        <img src="images/close.gif" border=0 width="26" height="16" align="absmiddle">生物、医学</a></div> 
+      <div id="KB4Child" class="child"> &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/4_01.htm" class="text1" target="main"> 生物</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/4_02.htm" class="text1" target="main"> 国外大学生物学优秀教材（英文影印版）</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/4_03.htm" class="text1" target="main"> 生物医学工程与仪器丛书</a><br> 
+      </div> 
+      <div id="KB5Parent" class="parent"><a href="#" class="text2" onClick="expandIt('KB5'); return false">  
+        <img src="images/close.gif" border=0 width="26" height="16" align="absmiddle">数学</a></div> 
+      <div id="KB5Child" class="child"> &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/5_01.htm" class="text1" target="main"> 基础课教材</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/5_02.htm" class="text1" target="main"> 工程硕士应用数学系列教材</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/5_03.htm" class="text1" target="main"> 《最优化基础——模型与方法》系列教材</a><br> 
+      </div> 
+      <div id="KB6Parent" class="parent"><a href="#" class="text2" onClick="expandIt('KB6'); return false">  
+        <img src="images/close2.gif" border=0 width="26" height="16" align="absmiddle">物理、化学、化工、材料、力学</a></div> 
+      <div id="KB6Child" class="child"> &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/6_01.htm" class="text1" target="main"> 基础课教材</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/6_02.htm" class="text1" target="main"> 高等院校力学类系列教材</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/6_03.htm" class="text1" target="main"> 剑桥非线性科学系列（英文影印版）</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/6_04.htm" class="text1" target="main"> 新材料在高科技中的应用丛书</a><br> 
+          &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/3_04.htm" class="text1" target="main"> 清华大学建筑材料系列教材</a><br> 
+        &nbsp;&nbsp;<img src="images/open.gif" border=0 width="24" height="16" align="absmiddle">  
+        <a href="catalog/1_04.htm" class="text1" target="main"> 国际著名力学图书——影印版系列</a><br>      
+ 
+      </div> 
+    </td> 
+  </tr> 
+</table><br><br> 
+</body> 
+ 
+</html>

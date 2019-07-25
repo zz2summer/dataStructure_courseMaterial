@@ -1,0 +1,19 @@
+.black9 {  font-family: "宋体"; font-size: 9pt; color: #000000; line-height: 12pt}
+.black12b {  font-family: "宋体"; font-size: 12pt; font-weight: bold; color: #000000}
+.black9b {  font-family: "宋体"; font-size: 9pt; line-height: 12pt; font-weight: bold; color: #000000}
+.brown9 {  font-family: "宋体"; font-size: 9pt; line-height: 12pt; color: #996633}
+.brown12b {  font-family: "宋体"; font-size: 12pt; font-weight: bold; color: #996633}
+.brown9b {  font-family: "宋体"; font-size: 9pt; line-height: 12pt; font-weight: bold; color: #996633}
+.gray9 {  font-family: "宋体"; font-size: 9pt; line-height: 12pt; color: #666666}
+.gray9b {  font-family: "宋体"; font-size: 9pt; line-height: 12pt; font-weight: bold; color: #666666}
+.gray12b {  font-family: "宋体"; font-size: 12pt; font-weight: bold; color: #666666}
+.white9 {  font-family: "宋体"; font-size: 9pt; line-height: 12pt; color: #FFFFFF}
+.white9b {  font-family: "宋体"; font-size: 9pt; line-height: 12pt; font-weight: bold; color: #FFFFFF}
+.white12b {  font-family: "宋体"; font-size: 12pt; font-weight: bold; color: #FFFFFF}
+.blue9 {  font-family: "宋体"; font-size: 9pt; line-height: 12pt; color: #000099}
+.blue9b {  font-family: "宋体"; font-size: 9pt; line-height: 12pt; font-weight: bold; color: #000099}
+.blue12b {  font-family: "宋体"; font-size: 12pt; font-weight: bold; color: #000099}
+a:hover {  font-family: "宋体"; text-decoration: underline; color: #0000FF}
+a:link {  font-family: "宋体"; text-decoration: none; color: #000066}
+a:visited {  font-family: "宋体"; text-decoration: none}
+.darkred12b {  font-family: "宋体"; font-size: 12pt; font-weight: bold; color: #993300; line-height: 18pt}
